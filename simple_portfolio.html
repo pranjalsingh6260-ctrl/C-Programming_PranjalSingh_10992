@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>/* Criteria 1: Styled name top-left */
+.styled-name {
+    font-family: 'Georgia', serif;
+    color: #2c3e50;
+    margin: 0;
+}
+
+header {
+    background: #f8f9fa;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Criteria 2: Nav styling and hover effects */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+    text-decoration: underline; /* Required by criteria 2 */
+    font-weight: bold;
+}
+
+/* Criteria 3 & 4: Sections and Grid */
+.section { padding: 50px 20px; text-align: center; }
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.skill-card img { width: 50px; height: 50px; }
+
+/* Criteria 5 & 6: Boxes and formatting */
+.project-box, .recommend-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    background: #fff;
+}</style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1 class="styled-name">Pranjal Singh</h1> <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i></a></li> <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Project details</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#recommendations">Recommendations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="profile-container">
+            <img src="profile.jpg" alt="PJ Singh" class="profile-img">
+            <h2>About Me</h2>
+            <p>I am a passionate developer focusing on building efficient systems and user-friendly web interfaces. I enjoy solving complex logic puzzles and learning new frameworks.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <img src="https://imgs.search.brave.com/g7ZtT-_AJnDXVOoCKvjoAGgz0mWjHQpoM1EoabZk7WI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2QyL2Iw/LzExL2QyYjAxMTky/ZDhiYWVkNTU5N2Ew/ZTZiZmFhNGU5NDc1/LmpwZw" alt="HTML Logo">
+                <p>HTML5</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://imgs.search.brave.com/kDW8QwIzqANJ4IPQkntU0g9x9N8Gj43AR6gcUmaxg_E/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/dmVjdG9ybG9nby56/b25lL2xvZ29zL3cz/X2Nzcy93M19jc3Mt/b2ZmaWNpYWwuc3Zn" alt="CSS Logo">
+                <p>CSS3</p>
+            </div>
+            <div class="skill-card">
+                <img src="https://imgs.search.brave.com/UvChWjUA87SCMgBLiF7zi2TmKEONRrlx4-7ddJ8OIyM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc2Vla2xvZ28u/Y29tL2xvZ28tcG5n/LzMzLzIvamF2YXNj/cmlwdC1sb2dvLXBu/Z19zZWVrbG9nby0z/MzA1NDEucG5n" alt="JS Logo">
+                <p>JavaScript</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project-box">
+                <h3>Simple Machine Interpreter</h3>
+                <p>A C-based interpreter that parses memory instructions and prints ASCII strings.</p>
+            </div>
+            <div class="project-box">
+                <h3>Recursive Sum Generator</h3>
+                <p>An application utilizing recursive functions to calculate mathematical series with stack protection.</p>
+            </div>
+            <div class="project-box">
+                <h3>Static State Tracker</h3>
+                <p>A tool managing persistent global states using static variable scopes in C.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="recommendations" class="section">
+        <h2>Recommendations</h2>
+        <div id="recommendation-list">
+            <div class="recommend-card">"Pranjal is an exceptional problem solver with great attention to detail." - Alex P.</div>
+            <div class="recommend-card">"His ability to simplify complex code is impressive." - Sam R.</div>
+            <div class="recommend-card">"Highly recommend for any full-stack development project." - Jordan K.</div>
+        </div>
+
+        <div class="add-recommendation">
+            <h3>Add a Recommendation</h3>
+            <form id="recommendationForm">
+                <textarea id="newText" placeholder="Your recommendation..." required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Logic for Criteria 7 and 9
+        document.getElementById('recommendationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const text = document.getElementById('newText').value;
+            
+            // Add to list (Criteria 7)
+            const list = document.getElementById('recommendation-list');
+            const newCard = document.createElement('div');
+            newCard.className = 'recommend-card';
+            newCard.innerText = `"${text}" - New Contributor`;
+            list.appendChild(newCard);
+
+            // Pop-up confirmation (Criteria 9)
+            alert("Thank you for your recommendation!");
+            document.getElementById('newText').value = '';
+        });
+    </script>
+</body>
+</html>
